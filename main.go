@@ -14,13 +14,13 @@ func main(){
 	r := httprouter.New()
 	uc := controllers.NewUserController(getSession())
 	pc := controllers.NewPostController(getSession())	
-	r.GET("/post/user/:id",uc.GetUsersPosts)
+	r.GET("/post/users/:id",uc.GetUsersPosts)
 	r.GET("/users/:id", uc.GetUser)
 	r.POST("/users", uc.CreateUser)
 	r.GET("/posts/:id", pc.GetPost)
 	r.POST("/posts", pc.CreatePost)
 	
-	http.ListenAndServe("localhost:9000", r)
+	http.ListenAndServe("localhost:3333", r)
 }
 
 
